@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css">
+</head>
+
+<!--Starting by creating containser within the bootstrap grig system to style the webpage-->
+<body class="container-fluid">
+   
+    <p class="text-center">
+        <u>  <!--The main header for the webpage will be underlined-->
+            <h1>Favorite Colors Database</h1>
+        </u>
+    </p>
+
+    <div class="container-fluid">  
+       <div class="row">
+        <!--Creating a form-->
+        <form action="">
+            <div class="form-group">
+                <lable for="colorInput">Enter Favorite Color</lable>
+                <input type="text" class="form-control" id="colorInput" placeholder="Ex: Red">
+            </div>
+            <div class="form-group">
+                <lable for="dateInput">Todays Date</lable>
+                <input type="date" class="form-control" id="dateInputt">
+            </div>
+            <div class="form-group">
+                <label for="userHandle">Enter User Handle</label>
+                <input type="text" class="form-control" id="userHandle" placeholder="@example">
+            </div>
+            <button onclick="addToTable(this)" type="submit" class="btn btn-primary" id="subBtn">Submit</button>
+         </form>
+        </div> 
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <!--Creating a table-->
+            <table class="table table-striped" id="colorsTable">
+                <tr>
+                    <th scope="col">Color Name</th>
+                    <th scope="col">Date Submitted</th>
+                    <th scope="col">Submitted By</th>
+                </tr>
+            </table>
+
+            <script>
+                document.getElementById("subBtn").onclick=function() {
+                    
+                    document.getElementById("colorsTable").style.display = "block";
+
+                    let table = document.getElementById("colorsTable");
+                    let row = table.insertRow(-1);
+                    let colorName = row.insertCell(0);
+                    let dateSub = row.insertCell(1);
+                    let subBy = row.insertCell(2);
+
+                    colorName.innerHTML = document.getElementById("colorInput").value;
+                    dateSub.innerHTML = document.getElementById("dateInput").value;
+                    subBy.innerHTML = document.getElementById("userHandle").value;
+
+                    return false;
+                }
+
+            </script>
+        </div>
+    </div>
+
+    
+
+
+
+
+
+
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"</script>
+</body>
+</html>
